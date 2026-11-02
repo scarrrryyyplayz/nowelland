@@ -1,0 +1,868 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NOWELLAND | Ultimate Game Zone</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg: #080b18;
+    --panel: #12182c;
+    --blue: #00d9ff;
+    --purple: #8b5cf6;
+    --text: #ffffff;
+    --muted: #a8b0ca;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+button, input {
+    font: inherit;
+}
+
+button, a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* HEADER */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 6%;
+    background: #0d1122;
+    border-bottom: 1px solid #222a45;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--blue);
+}
+
+.header-btn {
+    border: 0;
+    border-radius: 9px;
+    background: var(--blue);
+    color: #06101b;
+    padding: 11px 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* REGISTRATION */
+
+#registerPage {
+    min-height: calc(100vh - 75px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 15px;
+    background:
+        radial-gradient(ellipse at top, #243d7d 0%, transparent 60%),
+        var(--bg);
+}
+
+.register-box {
+    width: 100%;
+    max-width: 430px;
+    padding: 32px;
+    background: rgba(18, 24, 44, 0.97);
+    border: 1px solid #35466e;
+    border-radius: 20px;
+    box-shadow: 0 0 50px #0066ff20;
+}
+
+.register-icon {
+    text-align: center;
+    font-size: 55px;
+    margin-bottom: 12px;
+}
+
+.register-box h1 {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.register-box h1 span {
+    color: var(--blue);
+}
+
+.register-box p {
+    text-align: center;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    border-radius: 9px;
+    border: 1px solid #35466e;
+    background: #090e1c;
+    color: white;
+    outline: none;
+    margin-bottom: 18px;
+}
+
+input:focus {
+    border-color: var(--blue);
+}
+
+.primary-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(100deg, var(--blue), #7c5cff);
+    color: #070b18;
+    border: none;
+    border-radius: 10px;
+    font-weight: 900;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.primary-btn:hover {
+    filter: brightness(1.12);
+}
+
+.small-note {
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 18px;
+    line-height: 1.6;
+}
+
+/* GAME PORTAL */
+
+#gamePage {
+    display: none;
+}
+
+.hero {
+    padding: 65px 6% 55px;
+    background:
+        radial-gradient(ellipse at 80% 20%, #4f2ca866, transparent 45%),
+        linear-gradient(135deg, #111a39, #080b18);
+}
+
+.hero-label {
+    display: inline-block;
+    padding: 8px 12px;
+    border: 1px solid #35466e;
+    background: #172340;
+    border-radius: 30px;
+    color: var(--blue);
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(36px, 7vw, 68px);
+    line-height: 1.05;
+    max-width: 800px;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: var(--blue);
+}
+
+.hero p {
+    color: var(--muted);
+    max-width: 600px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.hero-actions a {
+    display: inline-block;
+    padding: 14px 20px;
+    border-radius: 9px;
+    font-weight: bold;
+}
+
+.play-btn {
+    background: var(--blue);
+    color: #07101a;
+}
+
+.secondary-btn {
+    background: #222b48;
+    border: 1px solid #394768;
+}
+
+/* MAIN CONTENT */
+
+.content {
+    padding: 35px 6% 60px;
+}
+
+.welcome {
+    background: linear-gradient(100deg, #142448, #211642);
+    padding: 20px;
+    border-radius: 14px;
+    margin-bottom: 35px;
+    border: 1px solid #34436a;
+}
+
+.welcome h2 {
+    margin-bottom: 7px;
+}
+
+.welcome p {
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.section-title {
+    font-size: 25px;
+    margin-bottom: 18px;
+}
+
+.section-description {
+    color: var(--muted);
+    margin-top: -8px;
+    margin-bottom: 22px;
+    line-height: 1.6;
+}
+
+/* SEARCH */
+
+.search-box {
+    display: block;
+    max-width: 500px;
+    margin-bottom: 30px;
+}
+
+/* GAME CARDS */
+
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 45px;
+}
+
+.game-card {
+    background: var(--panel);
+    border: 1px solid #252f4d;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--blue);
+}
+
+.game-art {
+    min-height: 135px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 65px;
+    background: linear-gradient(135deg, #192e59, #40215e);
+}
+
+.game-card:nth-child(3n+2) .game-art {
+    background: linear-gradient(135deg, #173f50, #24306d);
+}
+
+.game-card:nth-child(3n) .game-art {
+    background: linear-gradient(135deg, #45265e, #192e59);
+}
+
+.game-info {
+    padding: 17px;
+}
+
+.game-info h3 {
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+.game-info p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.game-link {
+    display: block;
+    text-align: center;
+    background: #202c49;
+    padding: 11px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.game-link:hover {
+    background: #30456f;
+}
+
+.no-results {
+    display: none;
+    color: var(--muted);
+    margin: 20px 0;
+}
+
+/* POKI SECTION */
+
+.poki-panel {
+    background: linear-gradient(120deg, #152f50, #322050);
+    border: 1px solid #3b4c76;
+    padding: 28px;
+    border-radius: 18px;
+    margin-bottom: 40px;
+}
+
+.poki-panel h2 {
+    font-size: 27px;
+    margin-bottom: 12px;
+}
+
+.poki-panel p {
+    color: #c2c9dd;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.poki-link {
+    display: inline-block;
+    background: #fff;
+    color: #11182b;
+    padding: 14px 20px;
+    border-radius: 9px;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    padding: 25px 15px;
+    border-top: 1px solid #222a45;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 800px) {
+    .game-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .hero {
+        padding-top: 45px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 16px;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .game-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .register-box {
+        padding: 24px;
+    }
+
+    .content {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .hero {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <a class="logo" href="#" id="homeLogo">
+        🌎 NOWELLAND<span> .</span>
+    </a>
+
+    <button class="header-btn" id="headerButton"
+            onclick="showRegistration()">
+        REGISTER
+    </button>
+</header>
+
+
+<!-- PAGE 1: REGISTRATION -->
+
+<section id="registerPage">
+
+    <div class="register-box">
+
+        <div class="register-icon">🎮</div>
+
+        <h1>WELCOME TO <span>NOWELLAND</span></h1>
+
+        <p>
+            Your next gaming adventure starts here.
+            Choose your player name and enter the game zone!
+        </p>
+
+        <form id="registrationForm">
+
+            <label for="playerName">Choose Your Player Name</label>
+
+            <input
+                type="text"
+                id="playerName"
+                name="playerName"
+                maxlength="20"
+                placeholder="Enter your gaming name"
+                autocomplete="nickname"
+                required
+            >
+
+            <button class="primary-btn" type="submit">
+                ENTER GAME ZONE 🚀
+            </button>
+
+        </form>
+
+        <span class="small-note">
+            Demo registration. No password, phone number,
+            or address is required.
+        </span>
+
+    </div>
+
+</section>
+
+
+<!-- PAGE 2: GAME PORTAL -->
+
+<section id="gamePage">
+
+    <div class="hero">
+
+        <span class="hero-label">⚡ YOUR GAMING UNIVERSE</span>
+
+        <h1>PLAY MORE.<br><span>EXPLORE EVERYTHING.</span></h1>
+
+        <p>
+            Welcome to NOWELLAND, your gaming destination!
+            Discover racing, action, puzzles, sports, adventures
+            and more. Find a game and start playing.
+        </p>
+
+        <div class="hero-actions">
+
+            <a class="play-btn" href="#games">
+                🎮 EXPLORE GAMES
+            </a>
+
+            <a class="secondary-btn"
+               href="https://poki.com/"
+               target="_blank"
+               rel="noopener noreferrer">
+                🌐 EXPLORE POKI
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <main class="content">
+
+        <div class="welcome">
+            <h2 id="welcomeMessage">WELCOME, PLAYER!</h2>
+
+            <p>
+                You are now inside the NOWELLAND Game Zone.
+                Pick your next adventure below.
+            </p>
+        </div>
+
+
+        <!-- POKI LIBRARY -->
+
+        <section class="poki-panel">
+
+            <h2>🌍 DISCOVER HUNDREDS OF GAMES</h2>
+
+            <p>
+                Want a massive library of browser games?
+                Visit Poki to explore its collection of games,
+                including racing, adventure, multiplayer,
+                puzzle and arcade games.
+            </p>
+
+            <a class="poki-link"
+               href="https://poki.com/"
+               target="_blank"
+               rel="noopener noreferrer">
+                EXPLORE GAMES ON POKI ↗
+            </a>
+
+        </section>
+
+
+        <!-- NOWELLAND GAME CARDS -->
+
+        <section id="games">
+
+            <h2 class="section-title">🔥 POPULAR GAME ZONES</h2>
+
+            <p class="section-description">
+                Select a category to discover games.
+                Games open on their respective websites.
+            </p>
+
+            <input
+                class="search-box"
+                id="gameSearch"
+                type="search"
+                placeholder="🔍 Search game categories..."
+                aria-label="Search game categories"
+            >
+
+            <div class="game-grid" id="gameGrid">
+
+                <article class="game-card"
+                         data-search="racing car driving speed">
+                    <div class="game-art">🏎️</div>
+                    <div class="game-info">
+                        <h3>Racing Zone</h3>
+                        <p>Discover racing, driving and speed games.</p>
+                        <a class="game-link"
+                           href="https://poki.com/en/racing"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            PLAY RACING ↗
+                        </a>
+                    </div>
+                </article>
+
+
+                <article class="game-card"
+                         data-search="action adventure">
+                    <div class="game-art">⚔️</div>
+                    <div class="game-info">
+                        <h3>Action & Adventure</h3>
+                        <p>Explore action-packed browser adventures.</p>
+                        <a class="game-link"
+                           href="https://poki.com/"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            EXPLORE ↗
+                        </a>
+                    </div>
+                </article>
+
+
+                <article class="game-card"
+                         data-search="puzzle brain logic">
+                    <div class="game-art">🧩</div>
+                    <div class="game-info">
+                        <h3>Puzzle Zone</h3>
+                        <p>Challenge your brain with puzzles and logic.</p>
+                        <a class="game-link"
+                           href="https://poki.com/"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            PLAY PUZZLES ↗
+                        </a>
+                    </div>
+                </article>
+
+
+                <article class="game-card"
+                         data-search="sports football basketball">
+                    <div class="game-art">⚽</div>
+                    <div class="game-info">
+                        <h3>Sports Arena</h3>
+                        <p>Discover sports, football and basketball games.</p>
+                        <a class="game-link"
+                           href="https://poki.com/"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            ENTER ARENA ↗
+                        </a>
+                    </div>
+                </article>
+
+
+                <article class="game-card"
+                         data-search="multiplayer friends online">
+                    <div class="game-art">👥</div>
+                    <div class="game-info">
+                        <h3>Multiplayer Zone</h3>
+                        <p>Find games you can enjoy with other players.</p>
+                        <a class="game-link"
+                           href="https://poki.com/"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            PLAY TOGETHER ↗
+                        </a>
+                    </div>
+                </article>
+
+
+                <article class="game-card"
+                         data-search="arcade classic">
+                    <div class="game-art">👾</div>
+                    <div class="game-info">
+                        <h3>Arcade World</h3>
+                        <p>Discover quick, fun arcade challenges.</p>
+                        <a class="game-link"
+                           href="https://poki.com/"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            PLAY ARCADE ↗
+                        </a>
+                    </div>
+                </article>
+
+
+                <article class="game-card"
+                         data-search="subway surfers running runner">
+                    <div class="game-art">🏃</div>
+                    <div class="game-info">
+                        <h3>Running Games</h3>
+                        <p>Explore endless runners and running challenges.</p>
+                        <a class="game-link"
+                           href="https://poki.com/"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            START RUNNING ↗
+                        </a>
+                    </div>
+                </article>
+
+
+                <article class="game-card"
+                         data-search="minecraft building crafting">
+                    <div class="game-art">🧱</div>
+                    <div class="game-info">
+                        <h3>Building & Crafting</h3>
+                        <p>Discover creative building-style games.</p>
+                        <a class="game-link"
+                           href="https://poki.com/"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            START BUILDING ↗
+                        </a>
+                    </div>
+                </article>
+
+
+                <article class="game-card"
+                         data-search="casual fun relaxing">
+                    <div class="game-art">🎯</div>
+                    <div class="game-info">
+                        <h3>Casual Games</h3>
+                        <p>Find easy-to-start games for a quick break.</p>
+                        <a class="game-link"
+                           href="https://poki.com/"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            PLAY NOW ↗
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+
+            <p class="no-results" id="noResults">
+                No matching categories found. Try another search!
+            </p>
+
+        </section>
+
+    </main>
+
+</section>
+
+
+<footer>
+    <p>🌎 NOWELLAND — YOUR GAMING UNIVERSE</p>
+    <p>Independent gaming portal. Not affiliated with Poki.</p>
+    <p>© 2026 NOWELLAND</p>
+</footer>
+
+
+<script>
+
+/* DEMO REGISTRATION */
+
+const form = document.getElementById("registrationForm");
+const registerPage = document.getElementById("registerPage");
+const gamePage = document.getElementById("gamePage");
+const headerButton = document.getElementById("headerButton");
+
+function enterGameZone(name) {
+
+    registerPage.style.display = "none";
+    gamePage.style.display = "block";
+
+    document.getElementById("welcomeMessage").textContent =
+        "WELCOME TO NOWELLAND, " + name.toUpperCase() + "! 🎮";
+
+    headerButton.textContent = "GAME ZONE";
+    headerButton.onclick = function () {
+        document.getElementById("games").scrollIntoView({
+            behavior: "smooth"
+        });
+    };
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+function showRegistration() {
+
+    gamePage.style.display = "none";
+    registerPage.style.display = "flex";
+
+    headerButton.textContent = "REGISTER";
+    headerButton.onclick = showRegistration;
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+form.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const name = document.getElementById("playerName")
+        .value.trim();
+
+    if (!name) {
+        return;
+    }
+
+    enterGameZone(name);
+
+});
+
+
+/* CATEGORY SEARCH */
+
+const searchInput = document.getElementById("gameSearch");
+const cards = document.querySelectorAll(".game-card");
+const noResults = document.getElementById("noResults");
+
+searchInput.addEventListener("input", function() {
+
+    const query = searchInput.value.toLowerCase().trim();
+    let visibleCards = 0;
+
+    cards.forEach(function(card) {
+
+        const keywords = card.dataset.search.toLowerCase();
+        const title = card.querySelector("h3")
+            .textContent.toLowerCase();
+
+        const matches =
+            keywords.includes(query) ||
+            title.includes(query);
+
+        card.style.display = matches ? "" : "none";
+
+        if (matches) {
+            visibleCards++;
+        }
+
+    });
+
+    noResults.style.display =
+        visibleCards === 0 ? "block" : "none";
+
+});
+
+
+/* HOME LOGO */
+
+document.getElementById("homeLogo").addEventListener(
+    "click",
+    function(event) {
+
+        event.preventDefault();
+
+        if (gamePage.style.display === "block") {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        } else {
+            showRegistration();
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
+```
